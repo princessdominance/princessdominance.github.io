@@ -1,0 +1,609 @@
+/* Mobile-First Responsive Optimization for Princess Dominance Findom Site */
+/* Inspired by successful mobile optimization patterns */
+
+/* Universal Mobile Resets and Base Styles */
+* {
+    box-sizing: border-box !important;
+    -webkit-tap-highlight-color: transparent !important;
+}
+
+/* Enhanced Viewport and Root Styles */
+html {
+    font-size: 16px !important;
+    scroll-behavior: smooth !important;
+    -webkit-text-size-adjust: 100% !important;
+    -ms-text-size-adjust: 100% !important;
+}
+
+body {
+    margin: 0 !important;
+    padding: 0 !important;
+    font-family: 'Georgia', 'Times New Roman', serif !important;
+    line-height: 1.6 !important;
+    overflow-x: hidden !important;
+    min-height: 100vh !important;
+    background-attachment: scroll !important; /* Performance optimization */
+}
+
+/* Container and Layout Fixes */
+.container {
+    max-width: 100% !important;
+    padding: 0 15px !important;
+    margin: 0 auto !important;
+}
+
+/* Mobile-Optimized Navigation */
+.hamburger-menu {
+    position: fixed !important;
+    top: 20px !important;
+    right: 20px !important;
+    z-index: 9999 !important;
+}
+
+.hamburger-btn {
+    width: 50px !important;
+    height: 50px !important;
+    background: linear-gradient(135deg, #e879f9 0%, #f472b6 100%) !important;
+    border: none !important;
+    border-radius: 50% !important;
+    cursor: pointer !important;
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: center !important;
+    justify-content: center !important;
+    gap: 4px !important;
+    box-shadow: 0 8px 25px rgba(233, 121, 249, 0.4) !important;
+    transition: all 0.3s ease !important;
+    /* Touch optimization */
+    min-width: 44px !important;
+    min-height: 44px !important;
+    -webkit-touch-callout: none !important;
+    -webkit-user-select: none !important;
+    user-select: none !important;
+}
+
+.hamburger-btn:hover,
+.hamburger-btn:focus {
+    transform: scale(1.1) !important;
+    box-shadow: 0 12px 35px rgba(233, 121, 249, 0.6) !important;
+    outline: none !important;
+}
+
+.nav-menu {
+    position: fixed !important;
+    top: 0 !important;
+    right: -320px !important;
+    width: 320px !important;
+    max-width: 90vw !important;
+    height: 100vh !important;
+    background: linear-gradient(135deg, rgba(233, 121, 249, 0.98), rgba(139, 0, 139, 0.95)) !important;
+    backdrop-filter: blur(20px) !important;
+    padding: 80px 20px 30px !important;
+    transition: right 0.3s ease !important;
+    z-index: 9998 !important;
+    box-shadow: -8px 0 25px rgba(233, 121, 249, 0.4) !important;
+    overflow-y: auto !important;
+}
+
+.nav-menu.active {
+    right: 0 !important;
+}
+
+.nav-menu h2 {
+    color: white !important;
+    font-size: 1.8rem !important;
+    margin-bottom: 2rem !important;
+    text-align: center !important;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.8) !important;
+    font-weight: 300 !important;
+}
+
+.nav-menu ul {
+    list-style: none !important;
+    padding: 0 !important;
+    margin: 0 !important;
+}
+
+.nav-menu li {
+    margin-bottom: 1.5rem !important;
+}
+
+.nav-menu a {
+    display: block !important;
+    color: white !important;
+    text-decoration: none !important;
+    font-size: 1.2rem !important;
+    font-weight: 400 !important;
+    padding: 18px 20px !important;
+    border-radius: 12px !important;
+    transition: all 0.3s ease !important;
+    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.8) !important;
+    /* Touch optimization */
+    min-height: 44px !important;
+    display: flex !important;
+    align-items: center !important;
+}
+
+.nav-menu a:hover,
+.nav-menu a:focus {
+    background: rgba(255, 255, 255, 0.15) !important;
+    color: #FFD700 !important;
+    transform: translateX(8px) !important;
+    outline: none !important;
+}
+
+/* Mobile Typography Scaling */
+@media (max-width: 768px) {
+    /* Hero Sections */
+    .hero h2 {
+        font-size: 2.2rem !important;
+        line-height: 1.2 !important;
+        margin-bottom: 1.5rem !important;
+        font-weight: 300 !important;
+        letter-spacing: 0.5px !important;
+    }
+
+    .hero p {
+        font-size: 1.1rem !important;
+        line-height: 1.6 !important;
+        margin-bottom: 2rem !important;
+        font-weight: 300 !important;
+    }
+
+    .packages-hero h2 {
+        font-size: 2rem !important;
+        margin-bottom: 1rem !important;
+    }
+
+    .packages-hero p {
+        font-size: 1rem !important;
+        margin-bottom: 1.5rem !important;
+    }
+
+    /* Section Headings */
+    .about h2,
+    .experience h2,
+    .testimonials h2,
+    .cta-section h2,
+    .pricing h2,
+    .packages-section h2 {
+        font-size: 2rem !important;
+        line-height: 1.3 !important;
+        margin-bottom: 2rem !important;
+        font-weight: 300 !important;
+        text-align: center !important;
+    }
+
+    /* Content Typography */
+    .about p,
+    .experience p,
+    .testimonials p,
+    .contact p {
+        font-size: 1rem !important;
+        line-height: 1.7 !important;
+        margin-bottom: 1.5rem !important;
+    }
+}
+
+/* Mobile Layout Optimizations */
+@media (max-width: 768px) {
+    /* Hero Sections */
+    .hero {
+        padding: 120px 0 80px !important;
+        text-align: center !important;
+        margin-top: 0 !important;
+    }
+
+    .packages-hero {
+        padding: 100px 0 60px !important;
+    }
+
+    /* Grid Layouts - Stack on Mobile */
+    .features,
+    .experience-grid,
+    .testimonials-grid,
+    .packages-grid,
+    .pricing-grid {
+        display: grid !important;
+        grid-template-columns: 1fr !important;
+        gap: 1.5rem !important;
+        margin-top: 2rem !important;
+    }
+
+    /* Cards and Content Blocks */
+    .feature,
+    .experience-card,
+    .testimonial,
+    .package-card,
+    .pricing-card {
+        margin-bottom: 1.5rem !important;
+        padding: 1.5rem !important;
+        border-radius: 16px !important;
+        box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1) !important;
+    }
+
+    /* Package Cards Mobile Optimization */
+    .package-card {
+        border-radius: 20px !important;
+        overflow: hidden !important;
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15) !important;
+        background: white !important;
+    }
+
+    .package-image {
+        height: 180px !important;
+        font-size: 1.3rem !important;
+    }
+
+    .package-content {
+        padding: 1.5rem !important;
+    }
+
+    .package-content h3 {
+        font-size: 1.3rem !important;
+        margin-bottom: 1rem !important;
+        line-height: 1.3 !important;
+    }
+
+    .package-content p {
+        font-size: 0.95rem !important;
+        line-height: 1.6 !important;
+        margin-bottom: 1.5rem !important;
+    }
+
+    .package-price {
+        font-size: 1.8rem !important;
+        margin-bottom: 1.5rem !important;
+    }
+
+    /* Buttons Mobile Optimization */
+    .cta-button,
+    .package-btn,
+    .submit-btn {
+        width: 100% !important;
+        max-width: 100% !important;
+        padding: 18px 24px !important;
+        font-size: 1.1rem !important;
+        border-radius: 12px !important;
+        /* Touch optimization */
+        min-height: 44px !important;
+        display: flex !important;
+        align-items: center !important;
+        justify-content: center !important;
+        text-align: center !important;
+        transition: all 0.3s ease !important;
+    }
+
+    .cta-buttons {
+        display: flex !important;
+        flex-direction: column !important;
+        gap: 1rem !important;
+        align-items: center !important;
+        margin-top: 2rem !important;
+    }
+
+    /* Section Spacing */
+    .about,
+    .experience,
+    .testimonials,
+    .cta-section,
+    .pricing,
+    .packages-section,
+    .contact {
+        padding: 60px 0 !important;
+        margin: 10px !important;
+        border-radius: 20px !important;
+    }
+}
+
+/* Contact Form Mobile Optimization */
+@media (max-width: 768px) {
+    .contact-form {
+        max-width: 100% !important;
+        margin: 0 auto !important;
+        padding: 2rem 1.5rem !important;
+        border-radius: 20px !important;
+    }
+
+    .form-group {
+        margin-bottom: 1.5rem !important;
+    }
+
+    .form-group label {
+        font-size: 1.1rem !important;
+        margin-bottom: 0.8rem !important;
+        display: block !important;
+    }
+
+    .form-group input,
+    .form-group select,
+    .form-group textarea {
+        width: 100% !important;
+        padding: 16px 18px !important;
+        font-size: 16px !important; /* Prevents zoom on iOS */
+        border-radius: 12px !important;
+        border: 2px solid rgba(233, 121, 249, 0.3) !important;
+        background: rgba(255, 255, 255, 0.95) !important;
+        /* Touch optimization */
+        min-height: 44px !important;
+        -webkit-appearance: none !important;
+        -moz-appearance: none !important;
+        appearance: none !important;
+    }
+
+    .form-group textarea {
+        min-height: 120px !important;
+        resize: vertical !important;
+    }
+
+    .submit-btn {
+        width: 100% !important;
+        padding: 18px 24px !important;
+        font-size: 1.2rem !important;
+        font-weight: 600 !important;
+        margin-top: 1rem !important;
+    }
+}
+
+/* Enhanced Mobile Performance */
+@media (max-width: 768px) {
+    /* Reduce animations on mobile for performance */
+    *,
+    *::before,
+    *::after {
+        animation-duration: 0.3s !important;
+        animation-timing-function: ease-out !important;
+    }
+
+    /* Optimize background attachments */
+    body,
+    .hero,
+    .gallery,
+    section {
+        background-attachment: scroll !important;
+    }
+
+    /* Optimize transforms for mobile */
+    .feature:hover,
+    .experience-card:hover,
+    .testimonial:hover,
+    .package-card:hover {
+        transform: translateY(-3px) !important;
+    }
+}
+
+/* Small Mobile Devices (320px - 480px) */
+@media (max-width: 480px) {
+    .container {
+        padding: 0 10px !important;
+    }
+
+    .hero {
+        padding: 100px 0 60px !important;
+    }
+
+    .hero h2 {
+        font-size: 1.8rem !important;
+    }
+
+    .hero p {
+        font-size: 1rem !important;
+    }
+
+    .nav-menu {
+        width: 280px !important;
+        padding: 80px 15px 30px !important;
+    }
+
+    .nav-menu h2 {
+        font-size: 1.5rem !important;
+    }
+
+    .nav-menu a {
+        font-size: 1.1rem !important;
+        padding: 15px 18px !important;
+    }
+
+    .about,
+    .experience,
+    .testimonials,
+    .cta-section,
+    .packages-section {
+        margin: 5px !important;
+        padding: 40px 0 !important;
+    }
+
+    .section h2 {
+        font-size: 1.8rem !important;
+    }
+
+    .package-content {
+        padding: 1.2rem !important;
+    }
+
+    .package-price {
+        font-size: 1.6rem !important;
+    }
+}
+
+/* Landscape Mobile Optimization */
+@media (max-width: 768px) and (orientation: landscape) {
+    .hero {
+        padding: 80px 0 50px !important;
+        min-height: auto !important;
+    }
+
+    .nav-menu {
+        height: 100vh !important;
+        padding: 60px 20px 20px !important;
+    }
+
+    .hamburger-btn {
+        top: 15px !important;
+        right: 15px !important;
+    }
+}
+
+/* Touch and Accessibility Enhancements */
+@media (max-width: 768px) {
+    /* Ensure all interactive elements meet touch target guidelines */
+    a,
+    button,
+    input,
+    select,
+    textarea,
+    .filter-btn,
+    .gallery-item {
+        min-width: 44px !important;
+        min-height: 44px !important;
+    }
+
+    /* Improve focus states for mobile */
+    a:focus,
+    button:focus,
+    input:focus,
+    select:focus,
+    textarea:focus {
+        outline: 3px solid rgba(233, 121, 249, 0.5) !important;
+        outline-offset: 2px !important;
+    }
+
+    /* Prevent text selection on UI elements */
+    .hamburger-btn,
+    .cta-button,
+    .package-btn,
+    .filter-btn {
+        -webkit-user-select: none !important;
+        -moz-user-select: none !important;
+        -ms-user-select: none !important;
+        user-select: none !important;
+        -webkit-touch-callout: none !important;
+    }
+}
+
+/* Footer Mobile Optimization */
+@media (max-width: 768px) {
+    footer {
+        padding: 2rem 0 !important;
+        text-align: center !important;
+    }
+
+    footer p {
+        font-size: 0.9rem !important;
+        line-height: 1.5 !important;
+        margin: 0 !important;
+        padding: 0 15px !important;
+    }
+
+    .footer-socials {
+        margin-top: 1.5rem !important;
+        display: flex !important;
+        justify-content: center !important;
+        gap: 15px !important;
+    }
+
+    .footer-social-icon {
+        width: 44px !important;
+        height: 44px !important;
+        border-radius: 12px !important;
+    }
+}
+
+/* Gallery Mobile Optimization */
+@media (max-width: 768px) {
+    .gallery-grid {
+        grid-template-columns: 1fr !important;
+        gap: 1.5rem !important;
+        margin-top: 2rem !important;
+    }
+
+    .gallery-item {
+        border-radius: 15px !important;
+        overflow: hidden !important;
+        box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15) !important;
+    }
+
+    .gallery-item img,
+    .placeholder-image {
+        height: 250px !important;
+        object-fit: cover !important;
+    }
+
+    .filter-buttons {
+        display: flex !important;
+        flex-direction: column !important;
+        gap: 10px !important;
+        align-items: center !important;
+        margin-bottom: 2rem !important;
+    }
+
+    .filter-btn {
+        width: 200px !important;
+        padding: 12px 20px !important;
+        font-size: 1rem !important;
+        border-radius: 25px !important;
+    }
+}
+
+/* Pricing Page Mobile Optimization */
+@media (max-width: 768px) {
+    .pricing {
+        background: #f8f9fa !important;
+        padding: 60px 0 !important;
+    }
+
+    .pricing-card {
+        background: white !important;
+        border-radius: 15px !important;
+        padding: 2rem 1.5rem !important;
+        margin-bottom: 1.5rem !important;
+        box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1) !important;
+    }
+
+    .pricing-card h3 {
+        font-size: 1.4rem !important;
+        margin-bottom: 1rem !important;
+    }
+
+    .price {
+        font-size: 2rem !important;
+        margin-bottom: 1.5rem !important;
+        color: #e879f9 !important;
+    }
+
+    .pricing-card ul {
+        text-align: left !important;
+        margin-bottom: 2rem !important;
+    }
+
+    .pricing-card li {
+        font-size: 1rem !important;
+        line-height: 1.6 !important;
+        margin-bottom: 0.8rem !important;
+    }
+}
+
+/* CSS Animation Performance Optimization */
+@media (max-width: 768px) {
+    /* Use transform and opacity for better performance */
+    .feature,
+    .experience-card,
+    .testimonial,
+    .package-card,
+    .pricing-card {
+        will-change: transform !important;
+        backface-visibility: hidden !important;
+        perspective: 1000px !important;
+    }
+
+    /* Reduce motion for users who prefer it */
+    @media (prefers-reduced-motion: reduce) {
+        *,
+        *::before,
+        *::after {
+            animation-duration: 0.01ms !important;
+            animation-iteration-count: 1 !important;
+            transition-duration: 0.01ms !important;
+        }
+    }
+}

@@ -1,0 +1,552 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Princess Dominance - Exclusive Financial Domination & Premium Content</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="mobile-fixes.css">
+    <style>
+        /* Luxurious Black, Pink & Green Theme */
+        body {
+            background: linear-gradient(135deg, #000000 0%, #1a1a1a 30%, #0a0a0a 70%, #111111 100%);
+            font-family: 'Georgia', 'Times New Roman', serif;
+            color: #e5e7eb;
+            line-height: 1.7;
+        }
+
+        /* Hero Section - Premium Dark with Pink & Green Accents */
+        .hero {
+            background: linear-gradient(135deg, #000000 0%, #1a0a1a 40%, #0a1a0a 70%, #000000 100%);
+            padding: 120px 0 100px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: radial-gradient(ellipse at 30% 20%, rgba(233, 121, 249, 0.15) 0%, transparent 60%),
+                        radial-gradient(ellipse at 70% 80%, rgba(16, 185, 129, 0.12) 0%, transparent 60%);
+            z-index: 1;
+        }
+
+        .hero .container {
+            position: relative;
+            z-index: 2;
+            text-align: center;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .hero h2 {
+            font-size: 3.5rem;
+            font-weight: 400;
+            background: linear-gradient(135deg, #ff69b4 0%, #10b981 50%, #ffffff 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            margin-bottom: 2rem;
+            letter-spacing: 2px;
+            text-shadow: none;
+        }
+
+        .hero p {
+            font-size: 1.4rem;
+            color: #d1d5db;
+            margin-bottom: 3rem;
+            font-weight: 300;
+            line-height: 1.8;
+            opacity: 0.95;
+            text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
+        }
+
+        .cta-button {
+            display: inline-block;
+            background: linear-gradient(135deg, #ff69b4 0%, #e91e63 100%);
+            color: white;
+            padding: 18px 40px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 1.1rem;
+            letter-spacing: 0.5px;
+            transition: all 0.4s ease;
+            box-shadow: 0 10px 30px rgba(233, 121, 249, 0.4);
+            border: 2px solid rgba(16, 185, 129, 0.3);
+        }
+
+        .cta-button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 15px 40px rgba(16, 185, 129, 0.6);
+            background: linear-gradient(135deg, #10b981 0%, #059669 100%);
+            border-color: rgba(16, 185, 129, 0.6);
+        }
+
+        /* About Section - Dark Luxury with Accents */
+        .about {
+            background: linear-gradient(135deg, #111111 0%, #1f1f1f 50%, #0a0a0a 100%);
+            backdrop-filter: blur(15px);
+            padding: 100px 0;
+            border-top: 2px solid rgba(16, 185, 129, 0.3);
+            border-bottom: 2px solid rgba(233, 121, 249, 0.3);
+        }
+
+        .about h2 {
+            font-size: 2.8rem;
+            background: linear-gradient(135deg, #ff69b4 0%, #10b981 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            margin-bottom: 2rem;
+            text-align: center;
+            font-weight: 400;
+        }
+
+        .about p {
+            font-size: 1.2rem;
+            color: #e5e7eb;
+            margin-bottom: 1.5rem;
+            line-height: 1.8;
+        }
+
+        .features {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .feature {
+            background: linear-gradient(135deg, rgba(17, 17, 17, 0.9) 0%, rgba(31, 31, 31, 0.8) 100%);
+            padding: 2.5rem;
+            border-radius: 20px;
+            text-align: center;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+            border: 1px solid rgba(233, 121, 249, 0.3);
+            transition: all 0.4s ease;
+        }
+
+        .feature:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 20px 40px rgba(16, 185, 129, 0.3);
+            background: linear-gradient(135deg, rgba(31, 31, 31, 0.95) 0%, rgba(41, 41, 41, 0.9) 100%);
+            border-color: rgba(16, 185, 129, 0.5);
+        }
+
+        .feature .icon {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+            display: block;
+        }
+
+        .feature h3 {
+            background: linear-gradient(135deg, #ff69b4 0%, #10b981 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            margin-bottom: 1rem;
+            font-size: 1.4rem;
+            font-weight: 500;
+        }
+
+        .feature p {
+            color: #d1d5db;
+            font-size: 1rem;
+            line-height: 1.6;
+        }
+
+        /* Experience Section - Lavender Cards */
+        .experience {
+            background: linear-gradient(135deg, rgba(155, 89, 182, 0.05) 0%, rgba(255, 192, 203, 0.05) 100%);
+            padding: 100px 0;
+        }
+
+        .experience h2 {
+            font-size: 2.8rem;
+            color: #6b46c1;
+            margin-bottom: 3rem;
+            text-align: center;
+            font-weight: 300;
+        }
+
+        .experience-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2.5rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .experience-card {
+            background: linear-gradient(135deg, rgba(255, 255, 255, 0.95) 0%, rgba(248, 245, 255, 0.9) 100%);
+            padding: 2.5rem;
+            border-radius: 25px;
+            text-align: center;
+            box-shadow: 0 15px 35px rgba(155, 89, 182, 0.1);
+            border: 1px solid rgba(221, 160, 221, 0.2);
+            transition: all 0.4s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .experience-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: linear-gradient(90deg, #e879f9 0%, #f472b6 100%);
+        }
+
+        .experience-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 25px 50px rgba(155, 89, 182, 0.2);
+        }
+
+        .card-icon {
+            font-size: 3.5rem;
+            margin-bottom: 1.5rem;
+            opacity: 0.8;
+        }
+
+        .experience-card h3 {
+            color: #6b46c1;
+            margin-bottom: 1rem;
+            font-size: 1.4rem;
+            font-weight: 400;
+        }
+
+        .experience-card p {
+            color: #805ad5;
+            font-size: 1rem;
+            line-height: 1.7;
+        }
+
+        /* Testimonials - Pink Theme */
+        .testimonials {
+            background: rgba(255, 255, 255, 0.9);
+            backdrop-filter: blur(15px);
+            padding: 100px 0;
+        }
+
+        .testimonials h2 {
+            font-size: 2.8rem;
+            color: #6b46c1;
+            margin-bottom: 3rem;
+            text-align: center;
+            font-weight: 300;
+        }
+
+        .testimonials-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .testimonial {
+            background: linear-gradient(135deg, rgba(255, 240, 245, 0.8) 0%, rgba(255, 255, 255, 0.9) 100%);
+            padding: 2.5rem;
+            border-radius: 20px;
+            box-shadow: 0 10px 30px rgba(255, 192, 203, 0.15);
+            border: 1px solid rgba(255, 192, 203, 0.3);
+            position: relative;
+        }
+
+        .testimonial::before {
+            content: '"';
+            position: absolute;
+            top: 20px;
+            left: 20px;
+            font-size: 4rem;
+            color: rgba(233, 121, 249, 0.2);
+            font-family: 'Georgia', serif;
+        }
+
+        .stars {
+            color: #fbb6ce;
+            font-size: 1.2rem;
+            margin-bottom: 1rem;
+            text-align: center;
+        }
+
+        .testimonial p {
+            color: #805ad5;
+            font-size: 1rem;
+            line-height: 1.7;
+            margin-bottom: 1.5rem;
+            font-style: italic;
+        }
+
+        .client {
+            text-align: right;
+            color: #6b46c1;
+            font-weight: 500;
+            font-size: 0.9rem;
+        }
+
+        /* CTA Section - Elegant Gradient */
+        .cta-section {
+            background: linear-gradient(135deg, rgba(155, 89, 182, 0.9) 0%, rgba(233, 121, 249, 0.8) 100%);
+            padding: 100px 0;
+            color: white;
+            text-align: center;
+            position: relative;
+        }
+
+        .cta-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: radial-gradient(circle at 50% 50%, rgba(255, 255, 255, 0.1) 0%, transparent 70%);
+        }
+
+        .cta-section .container {
+            position: relative;
+            z-index: 2;
+        }
+
+        .cta-section h2 {
+            font-size: 3rem;
+            margin-bottom: 2rem;
+            font-weight: 300;
+            text-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+        }
+
+        .cta-section p {
+            font-size: 1.3rem;
+            margin-bottom: 3rem;
+            opacity: 0.95;
+            line-height: 1.8;
+            max-width: 700px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .cta-buttons {
+            display: flex;
+            gap: 2rem;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .cta-button.primary {
+            background: linear-gradient(135deg, #ffffff 0%, #f8f5ff 100%);
+            color: #6b46c1;
+            border: 2px solid rgba(255, 255, 255, 0.3);
+            box-shadow: 0 8px 25px rgba(255, 255, 255, 0.2);
+        }
+
+        .cta-button.primary:hover {
+            background: linear-gradient(135deg, #f8f5ff 0%, #ffffff 100%);
+            transform: translateY(-3px);
+            box-shadow: 0 15px 35px rgba(255, 255, 255, 0.3);
+        }
+
+        .cta-button.secondary {
+            background: transparent;
+            color: white;
+            border: 2px solid rgba(255, 255, 255, 0.6);
+            box-shadow: 0 8px 25px rgba(255, 255, 255, 0.1);
+        }
+
+        .cta-button.secondary:hover {
+            background: rgba(255, 255, 255, 0.1);
+            border-color: rgba(255, 255, 255, 0.9);
+            transform: translateY(-3px);
+            box-shadow: 0 15px 35px rgba(255, 255, 255, 0.2);
+        }
+
+        /* Footer */
+        footer {
+            background: linear-gradient(135deg, rgba(107, 70, 193, 0.95) 0%, rgba(128, 90, 213, 0.9) 100%);
+            color: white;
+            padding: 2rem 0;
+            text-align: center;
+            backdrop-filter: blur(10px);
+        }
+
+        footer p {
+            margin: 0;
+            font-size: 0.9rem;
+            opacity: 0.9;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .hero h2 {
+                font-size: 2.5rem;
+            }
+
+            .hero p {
+                font-size: 1.2rem;
+            }
+
+            .about h2,
+            .experience h2,
+            .testimonials h2 {
+                font-size: 2.2rem;
+            }
+
+            .features {
+                grid-template-columns: 1fr;
+            }
+
+            .experience-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .testimonials-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .cta-buttons {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .cta-button {
+                width: 100%;
+                max-width: 300px;
+            }
+        }
+    </style>
+<body>
+    <!-- Hamburger Menu Button -->
+    <div class="hamburger-menu">
+        <button class="hamburger-btn" id="hamburger-btn">
+            <div class="hamburger-line"></div>
+            <div class="hamburger-line"></div>
+            <div class="hamburger-line"></div>
+        </button>
+    </div>
+
+    <!-- Navigation Menu -->
+    <nav class="nav-menu" id="nav-menu">
+        <h2>Beachprincess22</h2>
+        <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="gallery.html">Gallery</a></li>
+            <li><a href="packages.html">Packages</a></li>
+            <li><a href="contact.html">Contact</a></li>
+        </ul>
+    </nav>
+
+    <section id="home" class="hero">
+        <div class="container">
+            <h2>Your Princess Demands Excellence</h2>
+            <p>I don't serve just anyone - I command obedience from worthy submissives who understand their place and pay tribute accordingly. My exclusive content and attention are earned through proper devotion and generous offerings. Only the most dedicated deserve my time.</p>
+            <a href="gallery.html" class="cta-button">Prove Your Worth</a>
+        </div>
+    </section>
+
+    <section id="about" class="about">
+        <div class="container">
+            <div class="about-content">
+                <div class="about-text">
+                    <h2>👑 Supreme Authority & Unmatched Power</h2>
+                    <p>I am your superior, and you will acknowledge this through your tributes. My content is not just premium - it's a privilege that you must earn. Each interaction is carefully controlled, and only those who properly compensate deserve my attention.</p>
+                    <p>💎 My devoted submissives understand that serving me requires significant financial commitment. Your tributes fuel my lifestyle while you receive the honor of my acknowledgment.</p>
+                    <div class="features">
+                        <div class="feature">
+                            <span class="icon">👑</span>
+                            <h3>Exclusive Dominance</h3>
+                            <p>Private sessions where I maintain complete control - accessible only to those who tribute appropriately</p>
+                        </div>
+                        <div class="feature">
+                            <span class="icon">💅</span>
+                            <h3>Premium Foot Content</h3>
+                            <p>Exclusive photos and videos of my perfect feet - content that commands respect and proper payment</p>
+                        </div>
+                        <div class="feature">
+                            <span class="icon">💸</span>
+                            <h3>Financial Submission</h3>
+                            <p>Structured tribute systems where you learn proper submission through financial devotion</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="experience" class="experience">
+        <div class="container">
+            <h2>👑 What My Devoted Submissives Earn</h2>
+            <div class="experience-grid">
+                <div class="experience-card">
+                    <div class="card-icon">💅</div>
+                    <h3>Personal Attention</h3>
+                    <p>Direct communication with Beachprincess22 - but only after proper tribute. My time is valuable and must be compensated accordingly.</p>
+                </div>
+                <div class="experience-card">
+                    <div class="card-icon">👠</div>
+                    <h3>Custom Foot Content</h3>
+                    <p>Personalized photos and videos featuring my perfect feet in poses you request. Premium content requires premium tribute.</p>
+                </div>
+                <div class="experience-card">
+                    <div class="card-icon">💄</div>
+                    <h3>Worship Sessions</h3>
+                    <p>Guided sessions where you learn proper devotion and submission. Your dedication is measured through consistent tributes.</p>
+                </div>
+                <div class="experience-card">
+                    <div class="card-icon">💵</div>
+                    <h3>Tribute Rewards</h3>
+                    <p>Generous tributes unlock exclusive content and privileges. Prove your devotion and earn special recognition from Beachprincess22.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="testimonials" class="testimonials">
+        <div class="container">
+            <h2>👑 What My Devoted Submissives Say</h2>
+            <div class="testimonials-grid">
+                <div class="testimonial">
+                    <div class="stars">⭐⭐⭐⭐⭐</div>
+                    <p>"Serving Beachprincess22 has taught me my proper place. Every tribute I send is worth the privilege of her acknowledgment. She truly is superior."</p>
+                    <div class="client">- devoted_sub_82</div>
+                </div>
+                <div class="testimonial">
+                    <div class="stars">⭐⭐⭐⭐⭐</div>
+                    <p>"Her feet are absolutely perfect and her dominance is intoxicating. I gladly tribute for the honor of her custom content."</p>
+                    <div class="client">- foot_worshipper</div>
+                </div>
+                <div class="testimonial">
+                    <div class="stars">⭐⭐⭐⭐⭐</div>
+                    <p>"Beachprincess22 knows exactly how to control and command. My tributes have increased steadily as I've learned proper submission."</p>
+                    <div class="client">- Anonymous Sub</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="cta" class="cta-section">
+        <div class="container">
+            <h2>👑 Ready to Submit and Serve?</h2>
+            <p>My attention and content are earned through proper tribute and devotion. Only serious submissives who understand the value of financial submission should approach. Prove your worth through action, not words.</p>
+            <div class="cta-buttons">
+                <a href="contact.html" class="cta-button primary">Submit Tribute Request</a>
+                <a href="packages.html" class="cta-button secondary">View Tribute Packages</a>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2025 Beachprincess22. All rights reserved. | Financial Domination • Foot Worship • Premium Content</p>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>

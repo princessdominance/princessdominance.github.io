@@ -1,0 +1,317 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tribute Packages - Princess Dominance</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="mobile-fixes.css">
+    <style>
+        /* Custom Donation Dropdown Styling */
+        .custom-donation {
+            margin: 1.5rem 0;
+            text-align: center;
+        }
+        
+        .custom-donation label {
+            display: block;
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+            color: #333;
+        }
+        
+        .custom-donation select {
+            width: 100%;
+            max-width: 200px;
+            padding: 12px 16px;
+            font-size: 1.1rem;
+            font-weight: 600;
+            border: 2px solid #e879f9;
+            border-radius: 8px;
+            background: white;
+            color: #333;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        
+        .custom-donation select:hover,
+        .custom-donation select:focus {
+            border-color: #d946ef;
+            box-shadow: 0 0 0 3px rgba(233, 121, 249, 0.1);
+            outline: none;
+        }
+        
+        /* Gift Section Styling */
+        .gift-section {
+            margin-top: 3rem;
+            text-align: center;
+        }
+        
+        .gift-card-special {
+            background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+            border-radius: 20px;
+            padding: 3rem 2rem;
+            box-shadow: 0 15px 35px rgba(240, 147, 251, 0.3);
+            max-width: 600px;
+            margin: 0 auto;
+        }
+        
+        .gift-content h3 {
+            color: white;
+            font-size: 2rem;
+            margin-bottom: 1rem;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+        }
+        
+        .gift-content p {
+            color: white;
+            font-size: 1.1rem;
+            margin-bottom: 2rem;
+            line-height: 1.6;
+            text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3);
+        }
+        
+        .gift-btn {
+            display: inline-block;
+            background: white;
+            color: #f5576c;
+            padding: 18px 36px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 700;
+            font-size: 1.2rem;
+            transition: all 0.3s ease;
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2);
+        }
+        
+        .gift-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 12px 35px rgba(0, 0, 0, 0.3);
+            color: #e11d48;
+        }
+        
+        /* Mobile Responsive */
+        @media (max-width: 768px) {
+            .gift-card-special {
+                padding: 2rem 1.5rem;
+                margin: 0 1rem;
+            }
+            
+            .gift-content h3 {
+                font-size: 1.6rem;
+            }
+            
+            .gift-content p {
+                font-size: 1rem;
+            }
+            
+            .custom-donation select {
+                max-width: 100%;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Hamburger Menu Button -->
+    <div class="hamburger-menu">
+        <button class="hamburger-btn" id="hamburger-btn">
+            <div class="hamburger-line"></div>
+            <div class="hamburger-line"></div>
+            <div class="hamburger-line"></div>
+        </button>
+    </div>
+
+    <!-- Navigation Menu -->
+    <nav class="nav-menu" id="nav-menu">
+        <h2>Beachprincess22</h2>
+        <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="gallery.html">Gallery</a></li>
+            <li><a href="packages.html">Packages</a></li>
+            <li><a href="contact.html">Contact</a></li>
+        </ul>
+    </nav>
+
+    <section class="packages-hero">
+        <div class="container">
+            <h2>Tribute & Subscription Options</h2>
+            <p>Choose your level of devotion to Beachprincess22 - monthly subscriptions or one-time tributes</p>
+        </div>
+    </section>
+
+    <!-- Monthly Subscriptions -->
+    <section class="packages-section monthly-packages">
+        <div class="container">
+            <h2>👑 Monthly Subscriptions</h2>
+            <div class="packages-grid">
+                <div class="package-card">
+                    <div class="package-image" style="background: linear-gradient(45deg, #FFB6C1 0%, #FFC0CB 100%);">
+                        <span>Basic Devotion</span>
+                    </div>
+                    <div class="package-content">
+                        <h3>Monthly Basic - $100/month</h3>
+                        <p>Regular monthly tribute for consistent submissives. Weekly content and ongoing access to Beachprincess22's attention.</p>
+                        <div class="package-features">
+                            <ul>
+                                <li>Weekly exclusive photo sets</li>
+                                <li>Monthly personal message</li>
+                                <li>Access to subscriber-only content</li>
+                                <li>Priority support and responses</li>
+                            </ul>
+                        </div>
+                        <div class="package-price">$100/month</div>
+                        <a href="payment.html" class="package-btn">Subscribe Monthly</a>
+                    </div>
+                </div>
+
+                <div class="package-card">
+                    <div class="package-image" style="background: linear-gradient(45deg, #87CEEB 0%, #B0E0E6 100%);">
+                        <span>Premium Devotion</span>
+                    </div>
+                    <div class="package-content">
+                        <h3>Monthly Premium - $200/month</h3>
+                        <p>Enhanced monthly subscription with increased content and attention. For devoted submissives who understand their place.</p>
+                        <div class="package-features">
+                            <ul>
+                                <li>Daily exclusive content updates</li>
+                                <li>Weekly personal interactions</li>
+                                <li>Custom content requests included</li>
+                                <li>Most popular tier - elite submissives choose this</li>
+                            </ul>
+                        </div>
+                        <div class="package-price">$200/month</div>
+                        <a href="payment.html" class="package-btn">Subscribe Premium</a>
+                    </div>
+                </div>
+
+                <div class="package-card">
+                    <div class="package-image" style="background: linear-gradient(45deg, #FFD700 0%, #FFFF00 100%);">
+                        <span>Ultimate Devotion</span>
+                    </div>
+                    <div class="package-content">
+                        <h3>Monthly Ultimate - $500/month</h3>
+                        <p>The highest tier of monthly devotion. Complete access and personal attention from Beachprincess22. Reserved for the most dedicated submissives.</p>
+                        <div class="package-features">
+                            <ul>
+                                <li>Unlimited content access</li>
+                                <li>Daily personal interactions</li>
+                                <li>Live session privileges</li>
+                                <li>Special recognition and rewards</li>
+                                <li>Beachprincess22's personal attention ♥</li>
+                            </ul>
+                        </div>
+                        <div class="package-price">$500/month</div>
+                        <a href="payment.html" class="package-btn">Ultimate Devotion</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- One-Time Tributes -->
+    <section class="packages-section onetime-packages">
+        <div class="container">
+            <h2>💎 One-Time Tributes</h2>
+            <div class="packages-grid">
+                <div class="package-card">
+                    <div class="package-image" style="background: linear-gradient(45deg, #667eea 0%, #764ba2 100%);">
+                        <span>Standard FinDom</span>
+                    </div>
+                    <div class="package-content">
+                        <h3>Standard Financial Domination Session - $150</h3>
+                        <p>30-minute introductory foot-focused financial consultation with Beachprincess22. Perfect introduction to proper financial submission.</p>
+                        <div class="package-features">
+                            <ul>
+                                <li>30-minute introductory foot-focused financial consultation</li>
+                                <li>Personal financial assessment discussion</li>
+                                <li>Basic foot imagery consultation (3 photos)</li>
+                                <li>Introductory financial domination guidance</li>
+                                <li>Digital photo delivery via secure channel</li>
+                                <li>Email consultation summary</li>
+                            </ul>
+                        </div>
+                        <div class="package-price">$150</div>
+                        <a href="payment.html" class="package-btn">Submit Tribute</a>
+                    </div>
+                </div>
+
+                <div class="package-card">
+                    <div class="package-image" style="background: linear-gradient(45deg, #a8edea 0%, #fed6e3 100%);">
+                        <span>Premium FinDom</span>
+                    </div>
+                    <div class="package-content">
+                        <h3>Premium Financial Domination Experience - $300</h3>
+                        <p>1 hour comprehensive foot-focused premium session with Beachprincess22. Complete financial domination experience with extensive content package.</p>
+                        <div class="package-features">
+                            <ul>
+                                <li>1 hour comprehensive foot-focused premium session</li>
+                                <li>Comprehensive financial strategy consultation</li>
+                                <li>Premium foot photography package (8+ photos)</li>
+                                <li>Extended financial domination session</li>
+                                <li>Personalized financial guidance plan</li>
+                                <li>Priority email support for 7 days</li>
+                                <li>Custom foot imagery themes</li>
+                                <li>Secure digital delivery + print options</li>
+                            </ul>
+                        </div>
+                        <div class="package-price">$300</div>
+                        <a href="payment.html" class="package-btn">Submit Tribute</a>
+                    </div>
+                </div>
+
+                <div class="package-card">
+                    <div class="package-image" style="background: linear-gradient(45deg, #FFD700 0%, #FFA500 100%);">
+                        <span>Custom Donation</span>
+                    </div>
+                    <div class="package-content">
+                        <h3>Custom Donation</h3>
+                        <p>Choose your own tribute amount to show your devotion. Minimum $500. The more you give, the more attention you receive from Beachprincess22.</p>
+                        <div class="package-features">
+                            <ul>
+                                <li>Choose your tribute amount ($500+)</li>
+                                <li>Content based on donation level</li>
+                                <li>Personal acknowledgment</li>
+                                <li>Special recognition for larger donations</li>
+                            </ul>
+                        </div>
+                        <div class="custom-donation">
+                            <label for="donation-amount">Select Amount:</label>
+                            <select id="donation-amount" name="donation-amount">
+                                <option value="500">$500</option>
+                                <option value="750">$750</option>
+                                <option value="1000">$1000</option>
+                                <option value="1500">$1500</option>
+                                <option value="2000">$2000</option>
+                                <option value="2500">$2500</option>
+                                <option value="3000">$3000</option>
+                                <option value="5000">$5000</option>
+                                <option value="10000">$10000</option>
+                            </select>
+                        </div>
+                        <a href="payment.html" class="package-btn">Custom Tribute</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Gift Option -->
+            <div class="gift-section">
+                <div class="gift-card-special">
+                    <div class="gift-content">
+                        <h3>🎁 Spoil Me - Buy Me A Gift</h3>
+                        <p>Want to truly spoil Beachprincess22? Browse her wishlist and send her something special. Nothing makes her happier than receiving gifts from devoted submissives.</p>
+                        <a href="https://throne.com/beachprincess22" target="_blank" class="gift-btn">View My Throne Wishlist 👑</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2025 Beachprincess22. All rights reserved. | Financial Domination • Foot Worship • Premium Content</p>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
