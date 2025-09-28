@@ -1,0 +1,700 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Submit Tribute - Princess Dominance</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="mobile-fixes.css">
+    <style>
+        /* Luxurious Black, Pink & Green Theme with Rose Background */
+        html, body {
+            margin: 0;
+            padding: 0;
+            min-height: 100vh;
+            background: url('https://img.freepik.com/premium-vector/pink-roses-black-background-with-black-background_1310786-45941.jpg') no-repeat center center fixed !important;
+            background-size: cover !important;
+            background-attachment: fixed !important;
+            background-color: #000000 !important;
+            font-family: 'Georgia', 'Times New Roman', serif;
+            color: #e5e7eb;
+            line-height: 1.7;
+        }
+
+        body::before {
+            content: '';
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(135deg, rgba(0, 0, 0, 0.4) 0%, rgba(17, 17, 17, 0.5) 50%, rgba(0, 0, 0, 0.4) 100%);
+            z-index: -1;
+            pointer-events: none;
+        }
+        
+        /* Ensure hamburger menu is visible */
+        .hamburger-menu {
+            position: fixed !important;
+            top: 20px !important;
+            right: 20px !important;
+            z-index: 9999 !important;
+        }
+
+        .hamburger-btn {
+            width: 50px !important;
+            height: 50px !important;
+            background: linear-gradient(135deg, #FF69B4, #FF1493) !important;
+            border: none !important;
+            border-radius: 50% !important;
+            cursor: pointer !important;
+            display: flex !important;
+            flex-direction: column !important;
+            align-items: center !important;
+            justify-content: center !important;
+            gap: 4px !important;
+            box-shadow: 0 4px 15px rgba(255, 105, 180, 0.4) !important;
+            transition: all 0.3s ease !important;
+        }
+
+        .hamburger-btn:hover {
+            transform: scale(1.1) !important;
+            box-shadow: 0 6px 20px rgba(255, 105, 180, 0.6) !important;
+        }
+
+        .hamburger-line {
+            width: 20px !important;
+            height: 2px !important;
+            background: white !important;
+            border-radius: 2px !important;
+            transition: all 0.3s ease !important;
+        }
+
+        .hamburger-btn.active .hamburger-line:nth-child(1) {
+            transform: rotate(45deg) translate(6px, 6px) !important;
+        }
+
+        .hamburger-btn.active .hamburger-line:nth-child(2) {
+            opacity: 0 !important;
+        }
+
+        .hamburger-btn.active .hamburger-line:nth-child(3) {
+            transform: rotate(-45deg) translate(6px, -6px) !important;
+        }
+
+        /* Navigation Menu */
+        .nav-menu {
+            position: fixed !important;
+            top: 0 !important;
+            right: -300px !important;
+            width: 300px !important;
+            height: 100vh !important;
+            background: linear-gradient(135deg, rgba(255, 105, 180, 0.95), rgba(0, 0, 0, 0.95)) !important;
+            backdrop-filter: blur(20px) !important;
+            padding: 80px 30px 30px !important;
+            transition: right 0.3s ease !important;
+            z-index: 9998 !important;
+            box-shadow: -5px 0 15px rgba(0, 0, 0, 0.3) !important;
+        }
+
+        .nav-menu.active {
+            right: 0 !important;
+        }
+
+        .nav-menu h2 {
+            color: white !important;
+            font-size: 1.5rem !important;
+            margin-bottom: 2rem !important;
+            text-align: center !important;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.8) !important;
+        }
+
+        .nav-menu ul {
+            list-style: none !important;
+            padding: 0 !important;
+        }
+
+        .nav-menu li {
+            margin-bottom: 1rem !important;
+        }
+
+        .nav-menu a {
+            display: block !important;
+            color: white !important;
+            text-decoration: none !important;
+            font-size: 1.1rem !important;
+            font-weight: 500 !important;
+            padding: 15px 20px !important;
+            border-radius: 10px !important;
+            transition: all 0.3s ease !important;
+            text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.8) !important;
+        }
+
+        .nav-menu a:hover {
+            background: rgba(255, 255, 255, 0.1) !important;
+            color: #FFD700 !important;
+            transform: translateX(10px) !important;
+        }
+        
+        .contact-section {
+            padding: 120px 0 80px;
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            z-index: 1;
+        }
+
+        .contact-form {
+            max-width: 700px;
+            margin: 0 auto;
+            background: linear-gradient(135deg, rgba(0, 0, 0, 0.9) 0%, rgba(17, 17, 17, 0.85) 100%);
+            backdrop-filter: blur(20px);
+            padding: 3rem;
+            border-radius: 25px;
+            box-shadow: 0 25px 70px rgba(0, 0, 0, 0.5);
+            border: 2px solid rgba(233, 121, 249, 0.4);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .contact-form:hover {
+            border-color: rgba(16, 185, 129, 0.6);
+            box-shadow: 0 30px 80px rgba(16, 185, 129, 0.3);
+            transition: all 0.4s ease;
+        }
+
+        .contact-form h2 {
+            font-size: 2.5rem;
+            background: linear-gradient(135deg, #ff69b4 0%, #10b981 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            text-align: center;
+            margin-bottom: 2rem;
+            font-weight: 400;
+            letter-spacing: 1px;
+        }
+
+        .contact-form p {
+            color: #d1d5db;
+            text-align: center;
+            font-size: 1.1rem;
+            margin-bottom: 2.5rem;
+            line-height: 1.6;
+        }
+        
+        .contact-form::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: linear-gradient(45deg, transparent, rgba(255, 192, 203, 0.1), transparent);
+            animation: shimmer 4s linear infinite;
+            pointer-events: none;
+        }
+        
+        @keyframes formGlow {
+            0% { box-shadow: 0 20px 60px rgba(255, 105, 180, 0.4), 0 0 0 1px rgba(255, 255, 255, 0.4), inset 0 1px 0 rgba(255, 255, 255, 0.7); }
+            100% { box-shadow: 0 25px 80px rgba(255, 105, 180, 0.6), 0 0 0 1px rgba(255, 192, 203, 0.6), inset 0 1px 0 rgba(255, 255, 255, 0.9); }
+        }
+        
+        @keyframes shimmer {
+            0% { transform: translateX(-100%) translateY(-100%) rotate(45deg); }
+            100% { transform: translateX(100%) translateY(100%) rotate(45deg); }
+        }
+        
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+        
+        .form-group label {
+            display: block;
+            margin-bottom: 0.8rem;
+            font-weight: 600;
+            color: #e5e7eb;
+            font-size: 1.1rem;
+            text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
+            position: relative;
+        }
+        
+        .form-group label::after {
+            content: '✨';
+            margin-left: 8px;
+            color: #ff69b4;
+            opacity: 0.8;
+            animation: sparkle 2s ease-in-out infinite;
+        }
+        
+        @keyframes sparkle {
+            0%, 100% { opacity: 0.7; transform: scale(1); }
+            50% { opacity: 1; transform: scale(1.1); }
+        }
+        
+        .form-group input,
+        .form-group select,
+        .form-group textarea {
+            width: 100%;
+            padding: 16px 20px;
+            border: 2px solid rgba(233, 121, 249, 0.4);
+            border-radius: 15px;
+            font-size: 1rem;
+            background: linear-gradient(135deg, rgba(0, 0, 0, 0.8) 0%, rgba(17, 17, 17, 0.9) 100%);
+            backdrop-filter: blur(10px);
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
+            position: relative;
+            font-family: 'Georgia', 'Times New Roman', serif;
+            color: #e5e7eb;
+        }
+
+        .form-group input::placeholder,
+        .form-group textarea::placeholder {
+            color: #9ca3af;
+            opacity: 0.8;
+        }
+        
+        .form-group input:focus,
+        .form-group select:focus,
+        .form-group textarea:focus {
+            outline: none;
+            border-color: rgba(16, 185, 129, 0.6);
+            background: linear-gradient(135deg, rgba(16, 185, 129, 0.1) 0%, rgba(0, 0, 0, 0.9) 100%);
+            box-shadow: 0 12px 35px rgba(16, 185, 129, 0.3), 
+                        0 0 0 3px rgba(16, 185, 129, 0.2);
+            transform: translateY(-2px);
+        }
+        
+        .form-group textarea {
+            resize: vertical;
+            min-height: 120px;
+            line-height: 1.5;
+        }
+        
+        .form-group textarea::placeholder {
+            color: rgba(139, 75, 140, 0.7);
+            font-style: italic;
+        }
+        
+        .form-group select {
+            appearance: none;
+            cursor: pointer;
+            font-family: 'Georgia', 'Times New Roman', serif;
+            font-size: 1.1rem;
+            font-weight: 500;
+            color: #e5e7eb;
+        }
+        
+        .form-group select:hover {
+            border-color: rgba(233, 121, 249, 0.6);
+        }
+        
+        .submit-btn {
+            background: linear-gradient(45deg, #ff69b4, #e91e63);
+            background-size: 200% 200%;
+            color: #000000;
+            border: 2px solid rgba(16, 185, 129, 0.3);
+            padding: 18px 40px;
+            border-radius: 50px;
+            cursor: pointer;
+            font-size: 1.2rem;
+            font-weight: 700;
+            width: 100%;
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            box-shadow: 0 12px 35px rgba(233, 121, 249, 0.4);
+            position: relative;
+            overflow: hidden;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+        
+        .submit-btn::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.4), transparent);
+            transition: left 0.6s ease;
+        }
+        
+        .submit-btn:hover::before {
+            left: 100%;
+        }
+        
+        .submit-btn:hover {
+            transform: translateY(-4px) scale(1.02);
+            background: linear-gradient(45deg, #10b981, #059669);
+            box-shadow: 0 18px 50px rgba(16, 185, 129, 0.5);
+            border-color: rgba(16, 185, 129, 0.6);
+            color: #000000;
+        }
+        
+        .submit-btn:active {
+            transform: translateY(-2px) scale(0.98);
+        }
+        
+        .submit-btn:disabled {
+            opacity: 0.6;
+            cursor: not-allowed;
+            transform: none;
+            animation: none;
+        }
+        
+        @keyframes buttonPulse {
+            0%, 100% { box-shadow: 0 8px 25px rgba(255, 105, 180, 0.4), 0 0 0 2px rgba(255, 255, 255, 0.3), inset 0 1px 0 rgba(255, 255, 255, 0.3); }
+            50% { box-shadow: 0 12px 35px rgba(255, 105, 180, 0.6), 0 0 0 3px rgba(255, 192, 203, 0.4), inset 0 1px 0 rgba(255, 255, 255, 0.4); }
+        }
+        
+        .contact h2 {
+            color: white;
+            text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.8);
+            font-size: 2.5rem;
+            font-weight: bold;
+            text-align: center;
+            margin-bottom: 1rem;
+        }
+        
+        .contact p {
+            color: white;
+            background: linear-gradient(145deg, rgba(255, 192, 203, 0.7), rgba(219, 112, 147, 0.8));
+            backdrop-filter: blur(15px);
+            padding: 20px 30px;
+            border-radius: 15px;
+            font-size: 1.2rem;
+            font-weight: 500;
+            text-align: center;
+            max-width: 700px;
+            margin: 0 auto 3rem auto;
+            box-shadow: 0 8px 25px rgba(255, 105, 180, 0.4);
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            line-height: 1.6;
+            text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.7);
+        }
+        
+        .footer-socials {
+            text-align: center;
+            margin-top: 1.5rem;
+            padding-top: 1.5rem;
+            border-top: 1px solid rgba(255, 192, 203, 0.2);
+        }
+        
+        .footer-social-icon {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            margin: 0 10px;
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 192, 203, 0.3);
+            border-radius: 12px;
+            color: #FF69B4;
+            font-size: 1.2rem;
+            text-decoration: none;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+        }
+        
+        .footer-social-icon:hover {
+            background: rgba(255, 105, 180, 0.2);
+            border-color: #FF69B4;
+            color: white;
+            transform: translateY(-2px);
+            box-shadow: 0 8px 25px rgba(255, 105, 180, 0.3);
+        }
+        
+        .social-links {
+            text-align: center;
+            margin: 3rem 0;
+        }
+        
+        .social-links h3 {
+            color: white;
+            margin-bottom: 1rem;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.8);
+        }
+        
+        .social-icons {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+        }
+        
+        .social-icon {
+            display: inline-block;
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.9);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2rem;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+        }
+        
+        .social-icon:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
+        }
+        
+        .success-message {
+            display: none;
+            background: linear-gradient(135deg, rgba(16, 185, 129, 0.9) 0%, rgba(5, 150, 105, 0.8) 100%);
+            color: #ffffff;
+            padding: 1rem;
+            border-radius: 15px;
+            margin-top: 1rem;
+            text-align: center;
+            border: 2px solid rgba(16, 185, 129, 0.5);
+            backdrop-filter: blur(10px);
+        }
+        
+        .error-message {
+            display: none;
+            background: linear-gradient(135deg, rgba(239, 68, 68, 0.9) 0%, rgba(220, 38, 38, 0.8) 100%);
+            color: #ffffff;
+            padding: 1rem;
+            border-radius: 15px;
+            margin-top: 1rem;
+            text-align: center;
+            border: 2px solid rgba(239, 68, 68, 0.5);
+            backdrop-filter: blur(10px);
+        }
+
+        /* Footer styling */
+        footer {
+            background: rgba(0, 0, 0, 0.8) !important;
+            backdrop-filter: blur(15px);
+            color: #e5e7eb;
+            padding: 2rem 0;
+            text-align: center;
+        }
+
+        footer p {
+            margin: 0 0 1rem 0;
+            font-size: 0.9rem;
+            opacity: 0.9;
+        }
+
+        .footer-socials {
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+            margin-top: 1rem;
+        }
+
+        .footer-social-icon {
+            display: inline-block;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background: rgba(233, 121, 249, 0.2);
+            border: 2px solid rgba(233, 121, 249, 0.4);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.2rem;
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+
+        .footer-social-icon:hover {
+            background: rgba(16, 185, 129, 0.3);
+            border-color: rgba(16, 185, 129, 0.6);
+            transform: translateY(-2px);
+        }
+    </style>
+</head>
+<body>
+    <!-- Test Hamburger Menu -->
+    <div style="position: fixed; top: 20px; right: 20px; z-index: 99999;">
+        <button style="width: 60px; height: 60px; background: hotpink; border: none; border-radius: 50%; cursor: pointer;" onclick="toggleMenu()">
+            ☰
+        </button>
+    </div>
+
+    <div id="testMenu" style="position: fixed; top: 0; right: -300px; width: 300px; height: 100vh; background: rgba(255, 105, 180, 0.9); z-index: 99998; transition: right 0.3s ease; padding: 80px 20px;">
+        <h2 style="color: white; text-align: center;">Beach Princess</h2>
+        <ul style="list-style: none; padding: 0;">
+            <li style="margin: 20px 0;"><a href="index.html" style="color: white; text-decoration: none; font-size: 18px;">Home</a></li>
+            <li style="margin: 20px 0;"><a href="gallery.html" style="color: white; text-decoration: none; font-size: 18px;">Gallery</a></li>
+            <li style="margin: 20px 0;"><a href="packages.html" style="color: white; text-decoration: none; font-size: 18px;">Packages</a></li>
+            <li style="margin: 20px 0;"><a href="pricing.html" style="color: white; text-decoration: none; font-size: 18px;">Pricing</a></li>
+            <li style="margin: 20px 0;"><a href="contact.html" style="color: white; text-decoration: none; font-size: 18px;">Contact</a></li>
+        </ul>
+    </div>
+
+    <script>
+        function toggleMenu() {
+            const menu = document.getElementById('testMenu');
+            if (menu.style.right === '0px') {
+                menu.style.right = '-300px';
+            } else {
+                menu.style.right = '0px';
+            }
+        }
+    </script>
+
+    <nav class="nav-menu" id="nav-menu">
+        <h2>Beachprincess22</h2>
+        <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="gallery.html">Gallery</a></li>
+            <li><a href="packages.html">Packages</a></li>
+            <li><a href="contact.html">Contact</a></li>
+        </ul>
+    </nav>
+
+    <section class="contact-section">
+        <div class="container">
+            <div class="contact-form">
+                <h2>Submit Your Tribute Request</h2>
+                <p>Only serious submissives should use this form. Include your tribute amount and specific requests. I will only respond to those who demonstrate proper respect and financial commitment.</p>
+                <form id="contact-form">
+                    <div class="form-group">
+                        <label for="name">Name *</label>
+                        <input type="text" id="name" name="name" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="email">Email *</label>
+                        <input type="email" id="email" name="email" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="service">Tribute Package *</label>
+                        <select id="service" name="service" required>
+                            <option value="">Select your tribute level...</option>
+                            <option value="initial">INITIAL TRIBUTE ($25-$50) - Prove your worth</option>
+                            <option value="regular">REGULAR TRIBUTE ($75-$150) - Standard devotion</option>
+                            <option value="premium">PREMIUM TRIBUTE ($200-$300) - Dedicated service</option>
+                            <option value="ultimate">ULTIMATE DEVOTION ($400-$500+) - Total submission</option>
+                            <option value="custom-photos">CUSTOM FOOT PHOTOS ($100+) - Specific requests</option>
+                            <option value="video-content">VIDEO CONTENT ($200+) - Extended worship material</option>
+                            <option value="personal-session">PERSONAL SESSION ($300+) - Direct Beachprincess22 interaction</option>
+                            <option value="ongoing">ONGOING SUBMISSION ($500+/month) - Regular tribute schedule</option>
+                        </select>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="message">Tribute Details & Specific Requests *</label>
+                        <textarea id="message" name="message" rows="4" placeholder="State your tribute amount, specific content requests, and demonstrate your devotion. Only serious financial commitments will receive responses..." required></textarea>
+                    </div>
+                    
+                    <button type="submit" class="submit-btn" id="submit-btn">Submit Tribute Request</button>
+                </form>
+                
+                <div class="success-message" id="success-message">
+                    Your tribute request has been received. Beachprincess22 will review your submission and respond if you meet her standards. 👑
+                </div>
+                
+                <div class="error-message" id="error-message">
+                    Oops! Something went wrong. Please try again or contact me directly.
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2025 Beachprincess22. All rights reserved. | Financial Domination • Foot Worship • Premium Content</p>
+            <div class="footer-socials">
+                <a href="#" class="footer-social-icon" title="Instagram">📸</a>
+                <a href="#" class="footer-social-icon" title="Reddit">🟠</a>
+                <a href="#" class="footer-social-icon" title="X (Twitter)">🐦</a>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Replace with your Google Apps Script URL
+        const GOOGLE_SCRIPT_URL = 'https://script.google.com/macros/s/YOUR_SCRIPT_ID/exec';
+        
+        document.getElementById('contact-form').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            const submitBtn = document.getElementById('submit-btn');
+            const successMessage = document.getElementById('success-message');
+            const errorMessage = document.getElementById('error-message');
+            
+            // Hide previous messages
+            successMessage.style.display = 'none';
+            errorMessage.style.display = 'none';
+            
+            // Disable button and show loading
+            submitBtn.disabled = true;
+            submitBtn.textContent = 'Sending...';
+            
+            const formData = new FormData(this);
+            const data = {
+                name: formData.get('name'),
+                email: formData.get('email'),
+                service: formData.get('service'),
+                timestamp: new Date().toISOString()
+            };
+            
+            fetch(GOOGLE_SCRIPT_URL, {
+                method: 'POST',
+                mode: 'no-cors',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify(data)
+            })
+            .then(() => {
+                // Show success message
+                successMessage.style.display = 'block';
+                this.reset();
+                
+                // Re-enable button
+                submitBtn.disabled = false;
+                submitBtn.textContent = 'Send Message';
+            })
+            .catch(error => {
+                console.error('Error:', error);
+                
+                // Show error message
+                errorMessage.style.display = 'block';
+                
+                // Re-enable button
+                submitBtn.disabled = false;
+                submitBtn.textContent = 'Send Message';
+            });
+        });
+
+        // Hamburger menu functionality
+        const hamburgerBtn = document.getElementById('hamburger-btn');
+        const navMenu = document.getElementById('nav-menu');
+        
+        hamburgerBtn.addEventListener('click', function() {
+            hamburgerBtn.classList.toggle('active');
+            navMenu.classList.toggle('active');
+        });
+        
+        // Close menu when clicking outside
+        document.addEventListener('click', function(event) {
+            if (!hamburgerBtn.contains(event.target) && !navMenu.contains(event.target)) {
+                hamburgerBtn.classList.remove('active');
+                navMenu.classList.remove('active');
+            }
+        });
+        
+        // Close menu when clicking on a nav link
+        navMenu.addEventListener('click', function(event) {
+            if (event.target.tagName === 'A') {
+                hamburgerBtn.classList.remove('active');
+                navMenu.classList.remove('active');
+            }
+        });
+    </script>
+</body>
+</html>

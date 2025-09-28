@@ -1,0 +1,647 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>French Tips Collection - Beachprincess22</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="mobile-fixes.css">
+    <style>
+        /* French Tips Collection Styling */
+        .french-tips-hero {
+            background: linear-gradient(135deg, #f8f5ff 0%, #fceeff 50%, #fff5f7 100%);
+            padding: 4rem 0;
+            text-align: center;
+        }
+
+        .french-tips-hero h2 {
+            font-size: 2.5rem;
+            color: #333;
+            margin-bottom: 1rem;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.1);
+        }
+
+        .french-tips-hero p {
+            font-size: 1.2rem;
+            color: #666;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .collection-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+            padding: 3rem 0;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .collection-item {
+            background: white;
+            border-radius: 15px;
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+            transition: all 0.3s ease;
+            cursor: pointer;
+        }
+
+        .collection-item:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.15);
+        }
+
+        .collection-image {
+            width: 100%;
+            height: 250px;
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            position: relative;
+        }
+
+        .placeholder-slot {
+            background: linear-gradient(45deg, #f0f0f0 0%, #e0e0e0 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 3rem;
+            color: #bbb;
+        }
+
+        .collection-info {
+            padding: 1.5rem;
+            text-align: center;
+        }
+
+        .collection-info h3 {
+            font-size: 1.3rem;
+            color: #333;
+            margin-bottom: 0.5rem;
+        }
+
+        .collection-info p {
+            color: #666;
+            font-size: 0.95rem;
+        }
+
+        .featured-image {
+            background-image: url('https://i.imgur.com/IF4W46v.jpeg');
+        }
+
+        .back-to-gallery {
+            text-align: center;
+            padding: 2rem 0;
+        }
+
+        .back-btn {
+            display: inline-block;
+            background: linear-gradient(45deg, #e879f9, #d946ef);
+            color: white;
+            padding: 15px 30px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            box-shadow: 0 8px 20px rgba(233, 121, 249, 0.3);
+        }
+
+        .back-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 12px 30px rgba(233, 121, 249, 0.4);
+        }
+
+        /* Lightbox Modal Styling */
+        .lightbox {
+            display: none;
+            position: fixed;
+            z-index: 9999;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.9);
+            backdrop-filter: blur(5px);
+        }
+
+        .lightbox-content {
+            position: relative;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 100%;
+            padding: 2rem;
+        }
+
+        .lightbox-image {
+            max-width: 90%;
+            max-height: 90%;
+            object-fit: contain;
+            border-radius: 15px;
+            box-shadow: 0 25px 50px rgba(0, 0, 0, 0.5);
+            animation: lightboxZoom 0.3s ease-out;
+        }
+
+        @keyframes lightboxZoom {
+            from {
+                transform: scale(0.8);
+                opacity: 0;
+            }
+            to {
+                transform: scale(1);
+                opacity: 1;
+            }
+        }
+
+        .lightbox-close {
+            position: absolute;
+            top: 2rem;
+            right: 3rem;
+            color: white;
+            font-size: 3rem;
+            font-weight: bold;
+            cursor: pointer;
+            z-index: 10000;
+            transition: all 0.3s ease;
+            background: rgba(0, 0, 0, 0.5);
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .lightbox-close:hover {
+            background: rgba(255, 255, 255, 0.2);
+            transform: scale(1.1);
+        }
+
+        .lightbox-info {
+            position: absolute;
+            bottom: 2rem;
+            left: 50%;
+            transform: translateX(-50%);
+            color: white;
+            text-align: center;
+            background: rgba(0, 0, 0, 0.7);
+            padding: 1rem 2rem;
+            border-radius: 25px;
+            backdrop-filter: blur(10px);
+        }
+
+        .lightbox-info h3 {
+            margin: 0 0 0.5rem 0;
+            font-size: 1.5rem;
+        }
+
+        .lightbox-info p {
+            margin: 0;
+            opacity: 0.9;
+        }
+
+        /* Make collection items clickable */
+        .collection-item {
+            cursor: pointer;
+        }
+
+        .collection-image.featured-image {
+            cursor: pointer;
+        }
+
+        /* Mobile Responsive */
+        @media (max-width: 768px) {
+            .collection-grid {
+                grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+                gap: 1.5rem;
+                padding: 2rem 1rem;
+            }
+
+            .french-tips-hero h2 {
+                font-size: 2rem;
+            }
+
+            .french-tips-hero {
+                padding: 3rem 1rem;
+            }
+
+            .lightbox-close {
+                top: 1rem;
+                right: 1rem;
+                font-size: 2rem;
+                width: 40px;
+                height: 40px;
+            }
+
+            .lightbox-content {
+                padding: 1rem;
+            }
+
+            .lightbox-info {
+                bottom: 1rem;
+                left: 1rem;
+                right: 1rem;
+                transform: none;
+                padding: 0.8rem 1.5rem;
+            }
+
+            .lightbox-info h3 {
+                font-size: 1.2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Hamburger Menu Button -->
+    <div class="hamburger-menu">
+        <button class="hamburger-btn" id="hamburger-btn">
+            <div class="hamburger-line"></div>
+            <div class="hamburger-line"></div>
+            <div class="hamburger-line"></div>
+        </button>
+    </div>
+
+    <!-- Navigation Menu -->
+    <nav class="nav-menu" id="nav-menu">
+        <h2>Beachprincess22</h2>
+        <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="gallery.html">Gallery</a></li>
+            <li><a href="packages.html">Packages</a></li>
+            <li><a href="contact.html">Contact</a></li>
+        </ul>
+    </nav>
+
+    <section class="french-tips-hero">
+        <div class="container">
+            <h2>💅 French Tips Collection</h2>
+            <p>Elegant and sophisticated French tip nail artistry. Classic beauty with modern flair - exclusively from Beachprincess22.</p>
+        </div>
+    </section>
+
+    <section class="collection-section">
+        <div class="container">
+            <div class="collection-grid">
+                <!-- Featured Image -->
+                <div class="collection-item" onclick="openLightbox('https://i.imgur.com/IF4W46v.jpeg', 'Classic French Tips', 'Elegant white tips with natural base')">
+                    <div class="collection-image featured-image"></div>
+                    <div class="collection-info">
+                        <h3>Classic French Tips</h3>
+                        <p>Elegant white tips with natural base</p>
+                    </div>
+                </div>
+
+                <!-- Additional Collection Slots -->
+                <div class="collection-item">
+                    <div class="collection-image placeholder-slot">💅</div>
+                    <div class="collection-info">
+                        <h3>Glitter French Tips</h3>
+                        <p>Sparkling French tips with glitter accents</p>
+                    </div>
+                </div>
+
+                <div class="collection-item">
+                    <div class="collection-image placeholder-slot">💅</div>
+                    <div class="collection-info">
+                        <h3>Colored French Tips</h3>
+                        <p>French tips with colored accent lines</p>
+                    </div>
+                </div>
+
+                <div class="collection-item">
+                    <div class="collection-image placeholder-slot">💅</div>
+                    <div class="collection-info">
+                        <h3>Reverse French Tips</h3>
+                        <p>Modern reverse French manicure style</p>
+                    </div>
+                </div>
+
+                <div class="collection-item">
+                    <div class="collection-image placeholder-slot">💅</div>
+                    <div class="collection-info">
+                        <h3>Double French Tips</h3>
+                        <p>Double line French tip design</p>
+                    </div>
+                </div>
+
+                <div class="collection-item">
+                    <div class="collection-image placeholder-slot">💅</div>
+                    <div class="collection-info">
+                        <h3>Diagonal French Tips</h3>
+                        <p>Angled French tip variation</p>
+                    </div>
+                </div>
+
+                <div class="collection-item">
+                    <div class="collection-image placeholder-slot">💅</div>
+                    <div class="collection-info">
+                        <h3>Pink French Tips</h3>
+                        <p>Soft pink French tip elegance</p>
+                    </div>
+                </div>
+
+                <div class="collection-item">
+                    <div class="collection-image placeholder-slot">💅</div>
+                    <div class="collection-info">
+                        <h3>Black French Tips</h3>
+                        <p>Bold black French tip statement</p>
+                    </div>
+                </div>
+
+                <div class="collection-item">
+                    <div class="collection-image placeholder-slot">💅</div>
+                    <div class="collection-info">
+                        <h3>Metallic French Tips</h3>
+                        <p>Metallic finish French tips</p>
+                    </div>
+                </div>
+
+                <div class="collection-item">
+                    <div class="collection-image placeholder-slot">💅</div>
+                    <div class="collection-info">
+                        <h3>Gradient French Tips</h3>
+                        <p>Ombre gradient French design</p>
+                    </div>
+                </div>
+
+                <div class="collection-item">
+                    <div class="collection-image placeholder-slot">💅</div>
+                    <div class="collection-info">
+                        <h3>Nude French Tips</h3>
+                        <p>Natural nude French manicure</p>
+                    </div>
+                </div>
+
+                <div class="collection-item">
+                    <div class="collection-image placeholder-slot">💅</div>
+                    <div class="collection-info">
+                        <h3>Thin French Tips</h3>
+                        <p>Delicate thin line French tips</p>
+                    </div>
+                </div>
+
+                <div class="collection-item">
+                    <div class="collection-image placeholder-slot">💅</div>
+                    <div class="collection-info">
+                        <h3>Wide French Tips</h3>
+                        <p>Bold wide French tip design</p>
+                    </div>
+                </div>
+
+                <div class="collection-item">
+                    <div class="collection-image placeholder-slot">💅</div>
+                    <div class="collection-info">
+                        <h3>Textured French Tips</h3>
+                        <p>Textured finish French manicure</p>
+                    </div>
+                </div>
+
+                <div class="collection-item">
+                    <div class="collection-image placeholder-slot">💅</div>
+                    <div class="collection-info">
+                        <h3>Matte French Tips</h3>
+                        <p>Modern matte finish French tips</p>
+                    </div>
+                </div>
+
+                <div class="collection-item">
+                    <div class="collection-image placeholder-slot">💅</div>
+                    <div class="collection-info">
+                        <h3>Jeweled French Tips</h3>
+                        <p>French tips with jewel accents</p>
+                    </div>
+                </div>
+
+                <div class="collection-item">
+                    <div class="collection-image placeholder-slot">💅</div>
+                    <div class="collection-info">
+                        <h3>Floral French Tips</h3>
+                        <p>French tips with floral designs</p>
+                    </div>
+                </div>
+
+                <div class="collection-item">
+                    <div class="collection-image placeholder-slot">💅</div>
+                    <div class="collection-info">
+                        <h3>Geometric French Tips</h3>
+                        <p>Modern geometric French patterns</p>
+                    </div>
+                </div>
+
+                <div class="collection-item">
+                    <div class="collection-image placeholder-slot">💅</div>
+                    <div class="collection-info">
+                        <h3>Holographic French Tips</h3>
+                        <p>Holographic shimmer French tips</p>
+                    </div>
+                </div>
+
+                <div class="collection-item">
+                    <div class="collection-image placeholder-slot">💅</div>
+                    <div class="collection-info">
+                        <h3>V-Shaped French Tips</h3>
+                        <p>V-shaped French tip variation</p>
+                    </div>
+                </div>
+
+                <div class="collection-item">
+                    <div class="collection-image placeholder-slot">💅</div>
+                    <div class="collection-info">
+                        <h3>Curved French Tips</h3>
+                        <p>Elegantly curved French tips</p>
+                    </div>
+                </div>
+
+                <div class="collection-item">
+                    <div class="collection-image placeholder-slot">💅</div>
+                    <div class="collection-info">
+                        <h3>Asymmetric French Tips</h3>
+                        <p>Artistic asymmetric French design</p>
+                    </div>
+                </div>
+
+                <div class="collection-item">
+                    <div class="collection-image placeholder-slot">💅</div>
+                    <div class="collection-info">
+                        <h3>Chrome French Tips</h3>
+                        <p>Mirror chrome French tips</p>
+                    </div>
+                </div>
+
+                <div class="collection-item">
+                    <div class="collection-image placeholder-slot">💅</div>
+                    <div class="collection-info">
+                        <h3>Pearl French Tips</h3>
+                        <p>Pearlescent French tip finish</p>
+                    </div>
+                </div>
+
+                <div class="collection-item">
+                    <div class="collection-image placeholder-slot">💅</div>
+                    <div class="collection-info">
+                        <h3>Negative Space French</h3>
+                        <p>Negative space French design</p>
+                    </div>
+                </div>
+
+                <div class="collection-item">
+                    <div class="collection-image placeholder-slot">💅</div>
+                    <div class="collection-info">
+                        <h3>Striped French Tips</h3>
+                        <p>Striped pattern French tips</p>
+                    </div>
+                </div>
+
+                <div class="collection-item">
+                    <div class="collection-image placeholder-slot">💅</div>
+                    <div class="collection-info">
+                        <h3>Marble French Tips</h3>
+                        <p>Marble effect French manicure</p>
+                    </div>
+                </div>
+
+                <div class="collection-item">
+                    <div class="collection-image placeholder-slot">💅</div>
+                    <div class="collection-info">
+                        <h3>Ombre French Tips</h3>
+                        <p>Gradient ombre French tips</p>
+                    </div>
+                </div>
+
+                <div class="collection-item">
+                    <div class="collection-image placeholder-slot">💅</div>
+                    <div class="collection-info">
+                        <h3>Vintage French Tips</h3>
+                        <p>Classic vintage French style</p>
+                    </div>
+                </div>
+
+                <div class="collection-item">
+                    <div class="collection-image placeholder-slot">💅</div>
+                    <div class="collection-info">
+                        <h3>Modern French Tips</h3>
+                        <p>Contemporary French tip design</p>
+                    </div>
+                </div>
+
+                <div class="collection-item">
+                    <div class="collection-image placeholder-slot">💅</div>
+                    <div class="collection-info">
+                        <h3>Abstract French Tips</h3>
+                        <p>Abstract artistic French tips</p>
+                    </div>
+                </div>
+
+                <div class="collection-item">
+                    <div class="collection-image placeholder-slot">💅</div>
+                    <div class="collection-info">
+                        <h3>Lace French Tips</h3>
+                        <p>Delicate lace pattern French tips</p>
+                    </div>
+                </div>
+
+                <div class="collection-item">
+                    <div class="collection-image placeholder-slot">💅</div>
+                    <div class="collection-info">
+                        <h3>Studded French Tips</h3>
+                        <p>French tips with stud accents</p>
+                    </div>
+                </div>
+
+                <div class="collection-item">
+                    <div class="collection-image placeholder-slot">💅</div>
+                    <div class="collection-info">
+                        <h3>Sunset French Tips</h3>
+                        <p>Sunset gradient French design</p>
+                    </div>
+                </div>
+
+                <div class="collection-item">
+                    <div class="collection-image placeholder-slot">💅</div>
+                    <div class="collection-info">
+                        <h3>Elegant French Tips</h3>
+                        <p>Ultimate elegant French manicure</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="back-to-gallery">
+                <a href="gallery.html" class="back-btn">← Back to Gallery</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Lightbox Modal -->
+    <div id="lightbox" class="lightbox">
+        <div class="lightbox-content">
+            <span class="lightbox-close" onclick="closeLightbox()">&times;</span>
+            <img id="lightbox-image" class="lightbox-image" src="" alt="">
+            <div id="lightbox-info" class="lightbox-info">
+                <h3 id="lightbox-title"></h3>
+                <p id="lightbox-description"></p>
+            </div>
+        </div>
+    </div>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2025 Beachprincess22. All rights reserved. | Financial Domination • Foot Worship • Premium Content</p>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+    <script>
+        // Lightbox functionality
+        function openLightbox(imageSrc, title, description) {
+            const lightbox = document.getElementById('lightbox');
+            const lightboxImage = document.getElementById('lightbox-image');
+            const lightboxTitle = document.getElementById('lightbox-title');
+            const lightboxDescription = document.getElementById('lightbox-description');
+            
+            lightboxImage.src = imageSrc;
+            lightboxTitle.textContent = title;
+            lightboxDescription.textContent = description;
+            lightbox.style.display = 'block';
+            
+            // Prevent body scroll when lightbox is open
+            document.body.style.overflow = 'hidden';
+        }
+        
+        function closeLightbox() {
+            const lightbox = document.getElementById('lightbox');
+            lightbox.style.display = 'none';
+            
+            // Restore body scroll
+            document.body.style.overflow = 'auto';
+        }
+        
+        // Close lightbox when clicking outside the image
+        document.getElementById('lightbox').addEventListener('click', function(e) {
+            if (e.target === this) {
+                closeLightbox();
+            }
+        });
+        
+        // Close lightbox with ESC key
+        document.addEventListener('keydown', function(e) {
+            if (e.key === 'Escape') {
+                closeLightbox();
+            }
+        });
+        
+        // Add click events to placeholder items (for future images)
+        document.addEventListener('DOMContentLoaded', function() {
+            const placeholderItems = document.querySelectorAll('.collection-item:not([onclick])');
+            placeholderItems.forEach(function(item) {
+                item.addEventListener('click', function() {
+                    const title = this.querySelector('h3').textContent;
+                    const description = this.querySelector('p').textContent;
+                    // For now, use a placeholder image for empty slots
+                    // Replace with actual image URL when available
+                    openLightbox('https://via.placeholder.com/600x800/f0f0f0/999999?text=' + encodeURIComponent(title), title, description + ' - Coming Soon!');
+                });
+            });
+        });
+    </script>
+</body>
+</html>
