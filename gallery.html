@@ -1,0 +1,385 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exclusive Content - Beachprincess22</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="mobile-fixes.css">
+    <style>
+        /* Clean Gallery Card Styling */
+        .gallery-item {
+            background: linear-gradient(135deg, rgba(0, 0, 0, 0.9) 0%, rgba(17, 17, 17, 0.85) 100%);
+            backdrop-filter: blur(10px);
+            border-radius: 15px;
+            overflow: hidden;
+            transition: all 0.3s ease;
+            cursor: pointer;
+            box-shadow: 0 10px 35px rgba(0, 0, 0, 0.4);
+            border: 1px solid rgba(233, 121, 249, 0.3);
+        }
+
+        .gallery-item:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 20px 50px rgba(16, 185, 129, 0.4);
+            border-color: rgba(16, 185, 129, 0.6);
+            background: linear-gradient(135deg, rgba(16, 185, 129, 0.1) 0%, rgba(0, 0, 0, 0.9) 100%);
+        }
+
+        .card-header {
+            padding: 1.5rem 1.5rem 1rem;
+            text-align: center;
+        }
+
+        .card-icon {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+            display: block;
+        }
+
+        .card-title {
+            background: linear-gradient(135deg, #ff69b4 0%, #10b981 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            font-size: 1.3rem;
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+        }
+
+        .card-description {
+            color: #d1d5db;
+            font-size: 0.9rem;
+            line-height: 1.4;
+            margin-bottom: 1rem;
+        }
+
+        .card-features {
+            padding: 0 1.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .features-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 0.3rem;
+            font-size: 0.8rem;
+            color: #10b981;
+        }
+
+        .card-footer {
+            padding: 1rem 1.5rem 1.5rem;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 1rem;
+        }
+
+        .price-display {
+            background: linear-gradient(45deg, #ff69b4, #e91e63);
+            color: white;
+            padding: 0.4rem 0.8rem;
+            border-radius: 15px;
+            font-weight: bold;
+            font-size: 0.9rem;
+        }
+
+        .action-btn {
+            background: linear-gradient(45deg, #10b981, #059669);
+            color: white;
+            border: none;
+            padding: 8px 16px;
+            border-radius: 20px;
+            font-weight: 600;
+            font-size: 0.85rem;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            flex: 1;
+        }
+
+        .action-btn:hover {
+            background: linear-gradient(45deg, #059669, #047857);
+            transform: translateY(-1px);
+        }
+
+        .badge {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            background: rgba(233, 121, 249, 0.9);
+            color: white;
+            padding: 3px 8px;
+            border-radius: 10px;
+            font-size: 0.7rem;
+            font-weight: bold;
+            z-index: 2;
+        }
+
+        /* Card Color Themes */
+        .feet-theme { border-color: rgba(255, 107, 107, 0.3); }
+        .feet-theme .card-icon { color: #ff6b6b; }
+        
+        .heels-theme { border-color: rgba(162, 155, 254, 0.3); }
+        .heels-theme .card-icon { color: #a29bfe; }
+        
+        .soles-theme { border-color: rgba(0, 184, 148, 0.3); }
+        .soles-theme .card-icon { color: #00b894; }
+        
+        .premium-theme { border-color: rgba(253, 203, 110, 0.3); }
+        .premium-theme .card-icon { color: #fdcb6e; }
+        
+        .gym-theme { border-color: rgba(108, 92, 231, 0.3); }
+        .gym-theme .card-icon { color: #6c5ce7; }
+        
+        .action-theme { border-color: rgba(253, 121, 168, 0.3); }
+        .action-theme .card-icon { color: #fd79a8; }
+
+        /* Gallery Background Styling */
+        .gallery {
+            background-image: url('https://t3.ftcdn.net/jpg/08/18/60/00/360_F_818600047_eghnutbd8U9VgEdQEhAYha0WOtko5Ac2.jpg');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+            background-repeat: no-repeat;
+            position: relative;
+            min-height: 100vh;
+        }
+
+        .gallery::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(135deg, rgba(0, 0, 0, 0.7) 0%, rgba(17, 17, 17, 0.8) 50%, rgba(0, 0, 0, 0.7) 100%);
+            z-index: 1;
+        }
+
+        .gallery .container {
+            position: relative;
+            z-index: 2;
+        }
+
+        .gallery h2 {
+            color: white;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.8);
+            background: linear-gradient(135deg, #ff69b4 0%, #10b981 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            font-size: 2.5rem;
+            text-align: center;
+            margin-bottom: 3rem;
+            padding-top: 2rem;
+        }
+    </style>
+</head>
+<body>
+    <!-- Hamburger Menu Button -->
+    <div class="hamburger-menu">
+        <button class="hamburger-btn" id="hamburger-btn">
+            <div class="hamburger-line"></div>
+            <div class="hamburger-line"></div>
+            <div class="hamburger-line"></div>
+        </button>
+    </div>
+
+    <!-- Navigation Menu -->
+    <nav class="nav-menu" id="nav-menu">
+        <h2>Beachprincess22</h2>
+        <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="gallery.html">Gallery</a></li>
+            <li><a href="packages.html">Packages</a></li>
+            <li><a href="contact.html">Contact</a></li>
+        </ul>
+    </nav>
+
+    <section id="gallery" class="gallery">
+        <div class="container">
+            <h2>🌺 Welcome To The Album Of Me 🌺</h2>
+            <div class="gallery-grid">
+                <!-- Premium Feet Collection -->
+                <div class="gallery-item feet-theme" data-collection="feet">
+                    <div class="badge">EXCLUSIVE</div>
+                    <div class="card-header">
+                        <div class="card-icon">💅</div>
+                        <div class="card-title">Premium Feet Collection</div>
+                        <div class="card-description">Exquisite foot photography with perfectly manicured toes and artistic poses</div>
+                    </div>
+                    <div class="card-features">
+                        <div class="features-grid">
+                            <div>✨ 50+ Photos</div>
+                            <div>💅 Polish Styles</div>
+                            <div>🌸 Artistic Poses</div>
+                            <div>📱 Instant Access</div>
+                        </div>
+                    </div>
+                    <div class="card-footer">
+                        <div class="price-display">$15 - $45</div>
+                        <button class="action-btn" onclick="window.location.href='colors.html'">Explore</button>
+                    </div>
+                </div>
+
+                <div class="gallery-item heels-theme" data-collection="heels">
+                    <div class="badge">LUXURY</div>
+                    <div class="card-header">
+                        <div class="card-icon">👠</div>
+                        <div class="card-title">Designer Heels Collection</div>
+                        <div class="card-description">Luxury designer footwear with commanding elegance and authority</div>
+                    </div>
+                    <div class="card-features">
+                        <div class="features-grid">
+                            <div>👠 Designer Pairs</div>
+                            <div>💎 Crystal Accents</div>
+                            <div>📸 Pro Lighting</div>
+                            <div>🎭 Dominant Poses</div>
+                        </div>
+                    </div>
+                    <div class="card-footer">
+                        <div class="price-display">$25 - $65</div>
+                        <button class="action-btn">Notify Me</button>
+                    </div>
+                </div>
+
+                <div class="gallery-item soles-theme" data-collection="soles">
+                    <div class="badge">INTIMATE</div>
+                    <div class="card-header">
+                        <div class="card-icon">👣</div>
+                        <div class="card-title">Intimate Soles Collection</div>
+                        <div class="card-description">Mesmerizing close-ups with silky smooth textures and perfect arches</div>
+                    </div>
+                    <div class="card-features">
+                        <div class="features-grid">
+                            <div>👣 Close Shots</div>
+                            <div>🌸 Soft Texture</div>
+                            <div>💆 Oil Scenes</div>
+                            <div>💕 Custom Options</div>
+                        </div>
+                    </div>
+                    <div class="card-footer">
+                        <div class="price-display">$20 - $55</div>
+                        <button class="action-btn">Request</button>
+                    </div>
+                </div>
+
+                <div class="gallery-item premium-theme" data-collection="premium">
+                    <div class="badge">VIP ONLY</div>
+                    <div class="card-header">
+                        <div class="card-icon">💎</div>
+                        <div class="card-title">Ultimate VIP Experience</div>
+                        <div class="card-description">Exclusive access with personal interactions and premium privileges</div>
+                    </div>
+                    <div class="card-features">
+                        <div class="features-grid">
+                            <div>👑 Video Messages</div>
+                            <div>💬 Direct Chat</div>
+                            <div>📱 Custom Photos</div>
+                            <div>🌟 Priority Access</div>
+                        </div>
+                    </div>
+                    <div class="card-footer">
+                        <div class="price-display">$100+</div>
+                        <button class="action-btn">Apply VIP</button>
+                    </div>
+                </div>
+                
+                <!-- Nail Polish Colors for Feet - Hidden Initially -->
+                <div id="nail-polish-section" style="display: none;">
+                <div class="gallery-item gym-theme" data-price="$25" data-color="red">
+                    <div class="badge">FITNESS</div>
+                    <div class="card-header">
+                        <div class="card-icon">🧘‍♀️</div>
+                        <div class="card-title">Athletic Collection</div>
+                        <div class="card-description">Post-workout perfection with glistening skin and athletic grace</div>
+                    </div>
+                    <div class="card-features">
+                        <div class="features-grid">
+                            <div>💪 Post-Workout</div>
+                            <div>💦 Glistening</div>
+                            <div>🏃‍♀️ Athletic Wear</div>
+                            <div>⚡ Limited Sets</div>
+                        </div>
+                    </div>
+                    <div class="card-footer">
+                        <div class="price-display">$25</div>
+                        <button class="action-btn">Access</button>
+                    </div>
+                </div>
+                
+                <div class="gallery-item action-theme" data-price="$9" data-color="pink">
+                    <div class="badge">DYNAMIC</div>
+                    <div class="card-header">
+                        <div class="card-icon">🏃‍♀️</div>
+                        <div class="card-title">Movement Collection</div>
+                        <div class="card-description">Dynamic motion with dancing, stretching and natural grace</div>
+                    </div>
+                    <div class="card-features">
+                        <div class="features-grid">
+                            <div>💃 Dance Moves</div>
+                            <div>🌟 Natural Flow</div>
+                            <div>📸 Action Shots</div>
+                            <div>🎵 Rhythm</div>
+                        </div>
+                    </div>
+                    <div class="card-footer">
+                        <div class="price-display">$9</div>
+                        <button class="action-btn">Join</button>
+                    </div>
+                </div>
+                </div>
+                
+                <div class="gallery-item soles-theme" data-price="$9">
+                    <div class="badge">TENDER</div>
+                    <div class="card-header">
+                        <div class="card-icon">👣</div>
+                        <div class="card-title">Soft Soles Collection</div>
+                        <div class="card-description">Ultimate softness with silky smooth textures and intimate poses</div>
+                    </div>
+                    <div class="card-features">
+                        <div class="features-grid">
+                            <div>🌸 Silky Texture</div>
+                            <div>💕 Tender Poses</div>
+                            <div>🔍 Detail Shots</div>
+                            <div>💎 Sole Focus</div>
+                        </div>
+                    </div>
+                    <div class="card-footer">
+                        <div class="price-display">$9</div>
+                        <button class="action-btn">Experience</button>
+                    </div>
+                </div>
+                <div class="gallery-item premium-theme" data-price="$25">
+                    <div class="badge">ELITE</div>
+                    <div class="card-header">
+                        <div class="card-icon">💎</div>
+                        <div class="card-title">Elite Access</div>
+                        <div class="card-description">Finest quality content with exclusive access and personalized attention</div>
+                    </div>
+                    <div class="card-features">
+                        <div class="features-grid">
+                            <div>👑 Top Quality</div>
+                            <div>💎 Exclusive Rights</div>
+                            <div>📱 Personal Chat</div>
+                            <div>🎁 Bonuses</div>
+                        </div>
+                    </div>
+                    <div class="card-footer">
+                        <div class="price-display">$25</div>
+                        <button class="action-btn">Claim Elite</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2025 Elite Foot & Hand Artistry. All rights reserved. | Privacy & Discretion Guaranteed</p>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
