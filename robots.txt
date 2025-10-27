@@ -1,0 +1,18 @@
+User-agent: *
+Allow: /
+
+# Sitemap location
+Sitemap: https://princessdominance.com/sitemap.xml
+
+# Block access to sensitive directories
+Disallow: /assets/
+Disallow: /scripts/
+Disallow: /*.js$
+Disallow: /*.css$
+
+# Allow specific important files
+Allow: /assets/images/logo.png
+Allow: /assets/images/tabicon.ico
+
+# Crawl delay for respectful crawling
+Crawl-delay: 1
